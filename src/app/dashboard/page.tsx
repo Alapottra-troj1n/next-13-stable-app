@@ -1,15 +1,12 @@
-import { AuthRequiredError } from '@/lib/exceptions';
-import { FC } from 'react';
+import axios from 'axios';
 
-interface DashboardProps {}
+export const revalidate = 10;
 
-const session = null;
+const Dashboard = async ({}) => {
 
-const Dashboard: FC<DashboardProps> = ({}) => {
+  const {data} = await axios.get('https://jsonplaceholder.typicode.com/posts')
 
-  if(!session) throw new AuthRequiredError()
-
-  return <div>Auth Only Page</div>
-}
+  return <div>{JSON.stringify(data)}</div>;
+};
 
 export default Dashboard;

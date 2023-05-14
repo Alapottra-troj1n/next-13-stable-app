@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 
   return data.map((product: ProductProps) => {
     return {
-      id: product.toString(),
+      id: product.id.toString(),
     };
   });
 }
